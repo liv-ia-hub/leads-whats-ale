@@ -595,20 +595,32 @@
     document.getElementById('next4').disabled = !(nome.length > 2 && tel.length > 9);
   }
 
+  let _prevPhoneFormatted = '';
+
+  function _formatPhone(digits) {
+    if (digits.length > 7) return `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
+    if (digits.length > 2) return `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+    if (digits.length > 0) return `(${digits}`;
+    return '';
+  }
+
   function maskPhone(input) {
-    // Guarda posição do cursor para não travar no iPhone
-    const digits = input.value.replace(/\D/g, '').slice(0, 11);
-    let v = digits;
-    if (digits.length > 7) {
-      v = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
-    } else if (digits.length > 6) {
-      v = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-`;
-    } else if (digits.length > 2) {
-      v = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
-    } else if (digits.length > 0) {
-      v = `(${digits}`;
+    let digits = input.value.replace(/\D/g, '').slice(0, 11);
+
+    // Detecta deleção comparando tamanho da string atual com a anterior formatada.
+    // Se o tamanho diminuiu mas os dígitos são os mesmos (apagou hífen/parêntese),
+    // remove o último dígito — funciona em iOS Safari, Android Chrome e qualquer browser.
+    const currentLen  = input.value.length;
+    const prevLen     = _prevPhoneFormatted.length;
+    const prevDigits  = _prevPhoneFormatted.replace(/\D/g, '');
+
+    if (currentLen < prevLen && digits === prevDigits) {
+      digits = digits.slice(0, -1);
     }
-    input.value = v;
+
+    const formatted = _formatPhone(digits);
+    _prevPhoneFormatted = formatted;
+    input.value = formatted;
   }
 
   function buildSummary() {
