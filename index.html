@@ -15,8 +15,8 @@
     (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1648600899900993');
-    fbq('track', 'PageView');      // ► Evento 1: visitou a página
-    fbq('track', 'ViewContent', {  // ► Evento 2: viu o formulário
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
       content_name: 'Imersão de Penteados',
       content_category: 'Lead Form',
     });
@@ -42,6 +42,11 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   body {
     background-color: var(--bg);
     color: var(--text);
@@ -49,9 +54,10 @@
     font-weight: 300;
     min-height: 100vh;
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
   }
 
-  /* BACKGROUND */
   .bg-texture {
     position: fixed; inset: 0; z-index: 0;
     background:
@@ -68,15 +74,15 @@
     pointer-events: none;
   }
 
-  /* LAYOUT */
   .wrapper {
     position: relative; z-index: 2;
     max-width: 680px;
+    width: 100%;
     margin: 0 auto;
-    padding: 60px 24px 80px;
+    padding: 60px 16px 80px;
+    box-sizing: border-box;
   }
 
-  /* HEADER */
   .brand {
     text-align: center;
     margin-bottom: 56px;
@@ -85,13 +91,12 @@
 
   .brand-logo {
     width: 150px;
-    max-width: 70%;
+    max-width: min(150px, 60vw);
     height: auto;
     display: block;
     margin: 0 auto;
   }
 
-  /* HERO TEXT */
   .hero {
     text-align: center;
     margin-bottom: 52px;
@@ -131,7 +136,6 @@
     letter-spacing: 0.02em;
   }
 
-  /* FORM CARD */
   .form-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -142,13 +146,18 @@
   }
 
   @media (max-width: 520px) {
-    .form-card { padding: 32px 20px; }
+    .form-card { padding: 28px 16px; }
+    .wrapper { padding: 40px 12px 60px; }
+    .brand { margin-bottom: 36px; }
+    .hero { margin-bottom: 32px; }
   }
 
-  /* PROGRESS BAR */
-  .progress-bar-wrap {
-    margin-bottom: 36px;
+  @media (max-width: 360px) {
+    .form-card { padding: 24px 12px; }
+    .wrapper { padding: 32px 8px 48px; }
   }
+
+  .progress-bar-wrap { margin-bottom: 36px; }
 
   .progress-label {
     display: flex; justify-content: space-between;
@@ -171,7 +180,6 @@
     width: 0%;
   }
 
-  /* STEPS */
   .step { display: none; }
   .step.active {
     display: block;
@@ -189,7 +197,6 @@
     border-bottom: 1px solid var(--border);
   }
 
-  /* OPTIONS */
   .options { display: flex; flex-direction: column; gap: 10px; }
 
   .option {
@@ -242,7 +249,6 @@
     background: white;
   }
 
-  /* INPUT FIELDS */
   .input-group { margin-bottom: 20px; }
 
   .input-label {
@@ -270,7 +276,6 @@
   .input-field:focus { border-color: var(--accent); }
   .input-field::placeholder { color: var(--text-light); }
 
-  /* NAVIGATION */
   .nav-row {
     display: flex; gap: 12px;
     margin-top: 32px;
@@ -325,7 +330,6 @@
     box-shadow: 0 8px 24px rgba(37,211,102,0.25);
   }
 
-  /* SUMMARY */
   .summary-list {
     margin: 0 0 28px;
     display: flex; flex-direction: column; gap: 12px;
@@ -348,7 +352,6 @@
     color: var(--accent);
   }
 
-  /* ORNAMENT */
   .ornament {
     text-align: center;
     color: var(--text-muted);
@@ -358,7 +361,6 @@
     letter-spacing: 0.4em;
   }
 
-  /* ANIMATIONS */
   @keyframes fadeDown {
     from { opacity: 0; transform: translateY(-20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -483,13 +485,9 @@
 </div>
 
 <script>
-  // ─── CONFIG ────────────────────────────────────────────────────────────────
-  const WHATSAPP_NUMBER = '5544991648484'; // ← altere aqui
-
-  // ─── STATE ─────────────────────────────────────────────────────────────────
+  const WHATSAPP_NUMBER = '5544991648484';
   const answers = { q1: '', q2: '', q3: '' };
 
-  // ─── OPÇÕES CONDICIONAIS ────────────────────────────────────────────────────
   const Q2_OPTIONS = {
     'Já atuo com penteados': [
       'Até 2 anos de experiência',
@@ -504,12 +502,12 @@
   };
 
   const Q3_OPTIONS = {
-    'Até 2 anos de experiência':        ['Aperfeiçoar técnicas e ganhar confiança',   'Diversificar meu portfólio de serviços',   'Conquistar mais clientes'],
-    'De 2 a 5 anos de experiência':     ['Aprender técnicas avançadas e diferenciadas','Especializar em noivas e eventos',         'Crescer no mercado de beleza'],
-    'Mais de 5 anos de experiência':    ['Inovar e atualizar minhas técnicas',         'Ampliar serviços e aumentar ticket médio', 'Trocar experiências com outros profissionais'],
-    'Nunca fiz um curso de penteados':  ['Começar minha carreira do zero',             'Aprender para cuidar de família e amigos', 'Descobrir minha vocação na área'],
-    'Já fiz algum curso básico':        ['Avançar para o nível profissional',           'Conquistar minha primeira clientela',      'Ter uma certificação reconhecida'],
-    'Pratico penteados por conta própria': ['Profissionalizar meu talento',            'Aprender as técnicas corretas',            'Iniciar minha carreira em beleza'],
+    'Até 2 anos de experiência':           ['Aperfeiçoar técnicas e ganhar confiança',    'Diversificar meu portfólio de serviços',    'Conquistar mais clientes'],
+    'De 2 a 5 anos de experiência':        ['Aprender técnicas avançadas e diferenciadas', 'Especializar em noivas e eventos',          'Crescer no mercado de beleza'],
+    'Mais de 5 anos de experiência':       ['Inovar e atualizar minhas técnicas',          'Ampliar serviços e aumentar ticket médio',  'Trocar experiências com outros profissionais'],
+    'Nunca fiz um curso de penteados':     ['Começar minha carreira do zero',              'Aprender para cuidar de família e amigos',  'Descobrir minha vocação na área'],
+    'Já fiz algum curso básico':           ['Avançar para o nível profissional',            'Conquistar minha primeira clientela',       'Ter uma certificação reconhecida'],
+    'Pratico penteados por conta própria': ['Profissionalizar meu talento',                'Aprender as técnicas corretas',             'Iniciar minha carreira em beleza'],
   };
 
   const Q2_LABELS = {
@@ -519,7 +517,6 @@
 
   const TOTAL_STEPS = 4;
 
-  // ─── NAVEGAÇÃO ──────────────────────────────────────────────────────────────
   function goTo(n) {
     document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
     document.getElementById('step' + n).classList.add('active');
@@ -533,9 +530,11 @@
     if (n === 2) buildQ2();
     if (n === 3) buildQ3();
     if (n === 5) buildSummary();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scrolla suavemente até o topo do formulário, não da página
+    const card = document.querySelector('.form-card');
+    const offset = card.getBoundingClientRect().top + window.scrollY - 16;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
 
-    // ── PIXEL: eventos por etapa ──────────────────────────────────────────────
     const stepNames = {
       2: 'Pergunta 2 - Nivel de experiencia',
       3: 'Pergunta 3 - Objetivo na imersao',
@@ -543,7 +542,7 @@
       5: 'Revisao final',
     };
     if (n >= 2 && stepNames[n]) {
-      fbq('trackCustom', 'FormStep', {   // ► Evento 3: avanco entre etapas
+      fbq('trackCustom', 'FormStep', {
         step_number: n - 1,
         step_name: stepNames[n],
         content_name: 'Imersao de Penteados',
@@ -551,7 +550,6 @@
     }
   }
 
-  // ─── SELEÇÃO DE OPÇÃO ───────────────────────────────────────────────────────
   function selectOption(btn, step) {
     const container = btn.closest('.options');
     container.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
@@ -560,7 +558,6 @@
     const val = btn.dataset.value;
     if (step === 1) {
       answers.q1 = val; answers.q2 = ''; answers.q3 = '';
-      // Oculta o hero suavemente na primeira interação
       document.querySelector('.hero').classList.add('hidden');
     }
     if (step === 2) { answers.q2 = val; answers.q3 = ''; }
@@ -569,24 +566,18 @@
     document.getElementById('next' + step).disabled = false;
   }
 
-  // ─── BUILD DINÂMICO Q2 ──────────────────────────────────────────────────────
   function buildQ2() {
     document.getElementById('q2text').textContent = Q2_LABELS[answers.q1] || 'Qual é o seu nível de experiência?';
     const opts = Q2_OPTIONS[answers.q1] || [];
     const wrap = document.getElementById('opts2');
     wrap.innerHTML = opts.map(o =>
       `<button class="option${answers.q2 === o ? ' selected' : ''}" data-value="${o}" onclick="selectOption(this, 2)">
-        <span class="option-dot">${answers.q2 === o ? '' : ''}</span> ${o}
+        <span class="option-dot"></span> ${o}
       </button>`
     ).join('');
-    // re-render dots on selected
-    wrap.querySelectorAll('.option.selected .option-dot').forEach(d => {
-      d.innerHTML = '';
-    });
     document.getElementById('next2').disabled = !answers.q2;
   }
 
-  // ─── BUILD DINÂMICO Q3 ──────────────────────────────────────────────────────
   function buildQ3() {
     const opts = Q3_OPTIONS[answers.q2] || [];
     const wrap = document.getElementById('opts3');
@@ -598,39 +589,43 @@
     document.getElementById('next3').disabled = !answers.q3;
   }
 
-  // ─── VALIDAÇÃO STEP 4 ───────────────────────────────────────────────────────
   function checkStep4() {
     const nome = document.getElementById('nome').value.trim();
     const tel  = document.getElementById('telefone').value.trim();
     document.getElementById('next4').disabled = !(nome.length > 2 && tel.length > 9);
   }
 
-  // ─── MÁSCARA TELEFONE ───────────────────────────────────────────────────────
   function maskPhone(input) {
-    let v = input.value.replace(/\D/g, '').slice(0, 11);
-    if (v.length > 6) v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
-    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
-    else if (v.length) v = `(${v}`;
+    // Guarda posição do cursor para não travar no iPhone
+    const digits = input.value.replace(/\D/g, '').slice(0, 11);
+    let v = digits;
+    if (digits.length > 7) {
+      v = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
+    } else if (digits.length > 6) {
+      v = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-`;
+    } else if (digits.length > 2) {
+      v = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+    } else if (digits.length > 0) {
+      v = `(${digits}`;
+    }
     input.value = v;
   }
 
-  // ─── RESUMO ─────────────────────────────────────────────────────────────────
   function buildSummary() {
     const nome = document.getElementById('nome').value.trim();
     const tel  = document.getElementById('telefone').value.trim();
     const items = [
-      { q: 'Nome',                                                        a: nome },
-      { q: 'WhatsApp',                                                    a: tel  },
-      { q: 'Você já atua com penteados?',                                 a: answers.q1 },
-      { q: Q2_LABELS[answers.q1] || 'Nível de experiência',              a: answers.q2 },
-      { q: 'Principal objetivo na imersão',                               a: answers.q3 },
+      { q: 'Nome',                                           a: nome },
+      { q: 'WhatsApp',                                       a: tel  },
+      { q: 'Você já atua com penteados?',                    a: answers.q1 },
+      { q: Q2_LABELS[answers.q1] || 'Nível de experiência', a: answers.q2 },
+      { q: 'Principal objetivo na imersão',                  a: answers.q3 },
     ];
     document.getElementById('summaryList').innerHTML = items.map(i =>
       `<div class="summary-item"><div class="summary-q">${i.q}</div><div class="summary-a">${i.a}</div></div>`
     ).join('');
   }
 
-  // ─── ENVIAR WHATSAPP ────────────────────────────────────────────────────────
   function sendWhatsApp() {
     const nome = document.getElementById('nome').value.trim();
     const tel  = document.getElementById('telefone').value.trim();
@@ -654,8 +649,7 @@
     const encoded = encodeURIComponent(msg);
     const url = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encoded}&type=phone_number&app_absent=0`;
 
-    // ── PIXEL: Lead convertido ────────────────────────────────────────────────
-    fbq('track', 'Lead', {           // ► Evento 4: clicou em enviar no WhatsApp
+    fbq('track', 'Lead', {
       content_name: 'Imersao de Penteados',
       content_category: answers.q1,
       content_type: answers.q2,
