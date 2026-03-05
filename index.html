@@ -96,6 +96,16 @@
     text-align: center;
     margin-bottom: 52px;
     animation: fadeUp 0.9s 0.15s ease both;
+    transition: opacity 0.4s ease, max-height 0.5s ease, margin 0.4s ease, padding 0.4s ease;
+    max-height: 400px;
+    overflow: hidden;
+  }
+
+  .hero.hidden {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    pointer-events: none;
   }
 
   .hero h1 {
@@ -548,7 +558,11 @@
     btn.classList.add('selected');
 
     const val = btn.dataset.value;
-    if (step === 1) { answers.q1 = val; answers.q2 = ''; answers.q3 = ''; }
+    if (step === 1) {
+      answers.q1 = val; answers.q2 = ''; answers.q3 = '';
+      // Oculta o hero suavemente na primeira interação
+      document.querySelector('.hero').classList.add('hidden');
+    }
     if (step === 2) { answers.q2 = val; answers.q3 = ''; }
     if (step === 3) { answers.q3 = val; }
 
