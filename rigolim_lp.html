@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Imersão de Penteados | Rigolim Hair and Co</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- ══ META PIXEL ══════════════════════════════════════════════════════════ -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1648600899900993');
+    fbq('track', 'PageView');      // ► Evento 1: visitou a página
+    fbq('track', 'ViewContent', {  // ► Evento 2: viu o formulário
+      content_name: 'Imersão de Penteados',
+      content_category: 'Lead Form',
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1648600899900993&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+<style>
+  :root {
+    --accent:       #111111;
+    --accent-hover: #333333;
+    --bg:           #FAFAF8;
+    --bg-card:      #FFFFFF;
+    --bg-input:     #F4F4F2;
+    --bg-option:    #F9F9F7;
+    --border:       #E0E0DA;
+    --text:         #111111;
+    --text-muted:   #888880;
+    --text-light:   #BBBBBB;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* BACKGROUND */
+  .bg-texture {
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 15% 0%,  rgba(0,0,0,0.025) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 60% at 85% 100%, rgba(0,0,0,0.018) 0%, transparent 55%),
+      var(--bg);
+    pointer-events: none;
+  }
+
+  .grain {
+    position: fixed; inset: 0; z-index: 1;
+    opacity: 0.022;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* LAYOUT */
+  .wrapper {
+    position: relative; z-index: 2;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* HEADER */
+  .brand {
+    text-align: center;
+    margin-bottom: 56px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .brand-line {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  .brand-line .line {
+    flex: 1; max-width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent));
+  }
+  .brand-line .line.right {
+    background: linear-gradient(to left, transparent, var(--accent));
+  }
+
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* HERO TEXT */
+  .hero {
+    text-align: center;
+    margin-bottom: 52px;
+    animation: fadeUp 0.9s 0.15s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 8vw, 58px);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+    letter-spacing: 0.02em;
+  }
+
+  /* FORM CARD */
+  .form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 48px 40px;
+    animation: fadeUp 1s 0.25s ease both;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.05);
+  }
+
+  @media (max-width: 520px) {
+    .form-card { padding: 32px 20px; }
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar-wrap {
+    margin-bottom: 36px;
+  }
+
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 10px;
+  }
+
+  .progress-bar {
+    height: 2px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    width: 0%;
+  }
+
+  /* STEPS */
+  .step { display: none; }
+  .step.active {
+    display: block;
+    animation: fadeIn 0.4s ease both;
+  }
+
+  .step-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 4vw, 26px);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--text);
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    background: var(--bg-option);
+    color: var(--text);
+    text-align: left;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    width: 100%;
+  }
+
+  .option:hover {
+    border-color: var(--accent);
+    background: #F0F0EE;
+    color: var(--accent);
+  }
+
+  .option.selected {
+    border-color: var(--accent);
+    background: #EFEFED;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .option-dot {
+    width: 18px; height: 18px; flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .option.selected .option-dot {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .option.selected .option-dot::after {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  /* INPUT FIELDS */
+  .input-group { margin-bottom: 20px; }
+
+  .input-label {
+    display: block;
+    font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .input-field {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 14px 16px;
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .input-field:focus { border-color: var(--accent); }
+  .input-field::placeholder { color: var(--text-light); }
+
+  /* NAVIGATION */
+  .nav-row {
+    display: flex; gap: 12px;
+    margin-top: 32px;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 15px 24px;
+    border: none; border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px; font-weight: 400;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .btn-back {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    flex: 0 0 auto;
+    padding: 15px 20px;
+  }
+  .btn-back:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .btn-next {
+    background: var(--accent);
+    color: #FFFFFF;
+    font-weight: 500;
+  }
+  .btn-next:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .btn-next:disabled {
+    opacity: 0.25; cursor: not-allowed; transform: none; box-shadow: none;
+  }
+
+  .btn-whatsapp {
+    background: linear-gradient(135deg, #1a6e41, #25D366);
+    color: white;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 14px;
+  }
+  .btn-whatsapp:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(37,211,102,0.25);
+  }
+
+  /* SUMMARY */
+  .summary-list {
+    margin: 0 0 28px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+
+  .summary-item {
+    padding: 14px 18px;
+    background: var(--bg-input);
+    border-left: 2px solid var(--accent);
+  }
+
+  .summary-q {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 4px;
+  }
+
+  .summary-a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--accent);
+  }
+
+  /* ORNAMENT */
+  .ornament {
+    text-align: center;
+    color: var(--text-muted);
+    opacity: 0.4;
+    font-size: 18px;
+    margin: 36px 0 0;
+    letter-spacing: 0.4em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-texture"></div>
+<div class="grain"></div>
+
+<div class="wrapper">
+
+  <!-- BRAND -->
+  <header class="brand">
+    <div class="brand-line">
+      <span class="line"></span>
+      <span class="brand-name">Rigolim</span>
+      <span class="line right"></span>
+    </div>
+    <div class="brand-sub">Hair and Co</div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Imersão de<br/><em>Penteados</em></h1>
+    <p>Preencha o formulário abaixo e nossa equipe entrará em contato com todas as informações sobre a imersão.</p>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card">
+
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span id="stepLabel">Etapa 1 de 4</span>
+        <span id="stepPct">25%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step active" id="step1">
+      <div class="step-question">Você já atua com penteados profissionalmente?</div>
+      <div class="options" id="opts1">
+        <button class="option" data-value="Já atuo com penteados" onclick="selectOption(this, 1)">
+          <span class="option-dot"></span> Já atuo com penteados
+        </button>
+        <button class="option" data-value="Sou iniciante" onclick="selectOption(this, 1)">
+          <span class="option-dot"></span> Sou iniciante
+        </button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-next" id="next1" onclick="goTo(2)" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step2">
+      <div class="step-question" id="q2text">Qual é o seu nível de experiência?</div>
+      <div class="options" id="opts2"></div>
+      <div class="nav-row">
+        <button class="btn btn-back" onclick="goTo(1)">←</button>
+        <button class="btn btn-next" id="next2" onclick="goTo(3)" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step3">
+      <div class="step-question">Qual é o seu principal objetivo ao participar da imersão?</div>
+      <div class="options" id="opts3"></div>
+      <div class="nav-row">
+        <button class="btn btn-back" onclick="goTo(2)">←</button>
+        <button class="btn btn-next" id="next3" onclick="goTo(4)" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 — Dados pessoais -->
+    <div class="step" id="step4">
+      <div class="step-question">Quase lá! Informe seus dados para contato.</div>
+      <div class="input-group">
+        <label class="input-label" for="nome">Nome completo</label>
+        <input class="input-field" type="text" id="nome" placeholder="Seu nome" oninput="checkStep4()"/>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="telefone">WhatsApp (com DDD)</label>
+        <input class="input-field" type="tel" id="telefone" placeholder="(44) 99999-9999" oninput="maskPhone(this); checkStep4()"/>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-back" onclick="goTo(3)">←</button>
+        <button class="btn btn-next" id="next4" onclick="goTo(5)" disabled>Ver resumo</button>
+      </div>
+    </div>
+
+    <!-- STEP 5 — Resumo + WhatsApp -->
+    <div class="step" id="step5">
+      <div class="step-question">Tudo certo! Confirme suas respostas.</div>
+      <div class="summary-list" id="summaryList"></div>
+      <div class="nav-row" style="flex-direction:column; gap:10px;">
+        <button class="btn btn-whatsapp" onclick="sendWhatsApp()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Enviar pelo WhatsApp
+        </button>
+        <button class="btn btn-back" onclick="goTo(4)" style="flex:auto; text-align:center;">← Editar respostas</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+</div>
+
+<script>
+  // ─── CONFIG ────────────────────────────────────────────────────────────────
+  const WHATSAPP_NUMBER = '5544991648484'; // ← altere aqui
+
+  // ─── STATE ─────────────────────────────────────────────────────────────────
+  const answers = { q1: '', q2: '', q3: '' };
+
+  // ─── OPÇÕES CONDICIONAIS ────────────────────────────────────────────────────
+  const Q2_OPTIONS = {
+    'Já atuo com penteados': [
+      'Até 2 anos de experiência',
+      'De 2 a 5 anos de experiência',
+      'Mais de 5 anos de experiência',
+    ],
+    'Sou iniciante': [
+      'Nunca fiz um curso de penteados',
+      'Já fiz algum curso básico',
+      'Pratico penteados por conta própria',
+    ],
+  };
+
+  const Q3_OPTIONS = {
+    'Até 2 anos de experiência':        ['Aperfeiçoar técnicas e ganhar confiança',   'Diversificar meu portfólio de serviços',   'Conquistar mais clientes'],
+    'De 2 a 5 anos de experiência':     ['Aprender técnicas avançadas e diferenciadas','Especializar em noivas e eventos',         'Crescer no mercado de beleza'],
+    'Mais de 5 anos de experiência':    ['Inovar e atualizar minhas técnicas',         'Ampliar serviços e aumentar ticket médio', 'Trocar experiências com outros profissionais'],
+    'Nunca fiz um curso de penteados':  ['Começar minha carreira do zero',             'Aprender para cuidar de família e amigos', 'Descobrir minha vocação na área'],
+    'Já fiz algum curso básico':        ['Avançar para o nível profissional',           'Conquistar minha primeira clientela',      'Ter uma certificação reconhecida'],
+    'Pratico penteados por conta própria': ['Profissionalizar meu talento',            'Aprender as técnicas corretas',            'Iniciar minha carreira em beleza'],
+  };
+
+  const Q2_LABELS = {
+    'Já atuo com penteados': 'Quanto tempo você trabalha com penteados?',
+    'Sou iniciante':         'Como você se relaciona com penteados hoje?',
+  };
+
+  const TOTAL_STEPS = 4;
+
+  // ─── NAVEGAÇÃO ──────────────────────────────────────────────────────────────
+  function goTo(n) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + n).classList.add('active');
+
+    const displayed = n > 4 ? 4 : n;
+    const pct = Math.round((displayed / TOTAL_STEPS) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('stepLabel').textContent = `Etapa ${displayed} de ${TOTAL_STEPS}`;
+    document.getElementById('stepPct').textContent = pct + '%';
+
+    if (n === 2) buildQ2();
+    if (n === 3) buildQ3();
+    if (n === 5) buildSummary();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // ── PIXEL: eventos por etapa ──────────────────────────────────────────────
+    const stepNames = {
+      2: 'Pergunta 2 - Nivel de experiencia',
+      3: 'Pergunta 3 - Objetivo na imersao',
+      4: 'Dados de contato',
+      5: 'Revisao final',
+    };
+    if (n >= 2 && stepNames[n]) {
+      fbq('trackCustom', 'FormStep', {   // ► Evento 3: avanco entre etapas
+        step_number: n - 1,
+        step_name: stepNames[n],
+        content_name: 'Imersao de Penteados',
+      });
+    }
+  }
+
+  // ─── SELEÇÃO DE OPÇÃO ───────────────────────────────────────────────────────
+  function selectOption(btn, step) {
+    const container = btn.closest('.options');
+    container.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    const val = btn.dataset.value;
+    if (step === 1) { answers.q1 = val; answers.q2 = ''; answers.q3 = ''; }
+    if (step === 2) { answers.q2 = val; answers.q3 = ''; }
+    if (step === 3) { answers.q3 = val; }
+
+    document.getElementById('next' + step).disabled = false;
+  }
+
+  // ─── BUILD DINÂMICO Q2 ──────────────────────────────────────────────────────
+  function buildQ2() {
+    document.getElementById('q2text').textContent = Q2_LABELS[answers.q1] || 'Qual é o seu nível de experiência?';
+    const opts = Q2_OPTIONS[answers.q1] || [];
+    const wrap = document.getElementById('opts2');
+    wrap.innerHTML = opts.map(o =>
+      `<button class="option${answers.q2 === o ? ' selected' : ''}" data-value="${o}" onclick="selectOption(this, 2)">
+        <span class="option-dot">${answers.q2 === o ? '' : ''}</span> ${o}
+      </button>`
+    ).join('');
+    // re-render dots on selected
+    wrap.querySelectorAll('.option.selected .option-dot').forEach(d => {
+      d.innerHTML = '';
+    });
+    document.getElementById('next2').disabled = !answers.q2;
+  }
+
+  // ─── BUILD DINÂMICO Q3 ──────────────────────────────────────────────────────
+  function buildQ3() {
+    const opts = Q3_OPTIONS[answers.q2] || [];
+    const wrap = document.getElementById('opts3');
+    wrap.innerHTML = opts.map(o =>
+      `<button class="option${answers.q3 === o ? ' selected' : ''}" data-value="${o}" onclick="selectOption(this, 3)">
+        <span class="option-dot"></span> ${o}
+      </button>`
+    ).join('');
+    document.getElementById('next3').disabled = !answers.q3;
+  }
+
+  // ─── VALIDAÇÃO STEP 4 ───────────────────────────────────────────────────────
+  function checkStep4() {
+    const nome = document.getElementById('nome').value.trim();
+    const tel  = document.getElementById('telefone').value.trim();
+    document.getElementById('next4').disabled = !(nome.length > 2 && tel.length > 9);
+  }
+
+  // ─── MÁSCARA TELEFONE ───────────────────────────────────────────────────────
+  function maskPhone(input) {
+    let v = input.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    else if (v.length) v = `(${v}`;
+    input.value = v;
+  }
+
+  // ─── RESUMO ─────────────────────────────────────────────────────────────────
+  function buildSummary() {
+    const nome = document.getElementById('nome').value.trim();
+    const tel  = document.getElementById('telefone').value.trim();
+    const items = [
+      { q: 'Nome',                                                        a: nome },
+      { q: 'WhatsApp',                                                    a: tel  },
+      { q: 'Você já atua com penteados?',                                 a: answers.q1 },
+      { q: Q2_LABELS[answers.q1] || 'Nível de experiência',              a: answers.q2 },
+      { q: 'Principal objetivo na imersão',                               a: answers.q3 },
+    ];
+    document.getElementById('summaryList').innerHTML = items.map(i =>
+      `<div class="summary-item"><div class="summary-q">${i.q}</div><div class="summary-a">${i.a}</div></div>`
+    ).join('');
+  }
+
+  // ─── ENVIAR WHATSAPP ────────────────────────────────────────────────────────
+  function sendWhatsApp() {
+    const nome = document.getElementById('nome').value.trim();
+    const tel  = document.getElementById('telefone').value.trim();
+
+    const msg =
+`✨ *Novo Lead — Imersão de Penteados*
+*Rigolim Hair and Co*
+
+👤 *Nome:* ${nome}
+📱 *WhatsApp:* ${tel}
+
+💇 *Já atua com penteados?*
+→ ${answers.q1}
+
+📅 *${Q2_LABELS[answers.q1]}*
+→ ${answers.q2}
+
+🎯 *Principal objetivo na imersão:*
+→ ${answers.q3}`;
+
+    const encoded = encodeURIComponent(msg);
+    const url = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encoded}&type=phone_number&app_absent=0`;
+
+    // ── PIXEL: Lead convertido ────────────────────────────────────────────────
+    fbq('track', 'Lead', {           // ► Evento 4: clicou em enviar no WhatsApp
+      content_name: 'Imersao de Penteados',
+      content_category: answers.q1,
+      content_type: answers.q2,
+    });
+
+    window.open(url, '_blank');
+  }
+</script>
+</body>
+</html>
