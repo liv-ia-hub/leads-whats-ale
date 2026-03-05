@@ -83,34 +83,12 @@
     animation: fadeDown 0.8s ease both;
   }
 
-  .brand-line {
-    display: flex; align-items: center; justify-content: center; gap: 16px;
-    margin-bottom: 10px;
-  }
-
-  .brand-line .line {
-    flex: 1; max-width: 80px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--accent));
-  }
-  .brand-line .line.right {
-    background: linear-gradient(to left, transparent, var(--accent));
-  }
-
-  .brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 6vw, 42px);
-    font-weight: 300;
-    letter-spacing: 0.25em;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
-
-  .brand-sub {
-    font-size: 11px;
-    letter-spacing: 0.4em;
-    color: var(--text-muted);
-    text-transform: uppercase;
+  .brand-logo {
+    width: 220px;
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   /* HERO TEXT */
@@ -394,12 +372,11 @@
 
   <!-- BRAND -->
   <header class="brand">
-    <div class="brand-line">
-      <span class="line"></span>
-      <span class="brand-name">Rigolim</span>
-      <span class="line right"></span>
-    </div>
-    <div class="brand-sub">Hair and Co</div>
+    <img
+      src="https://raw.githubusercontent.com/liv-ia-hub/leads-whats-ale/refs/heads/main/logo-rigo.png"
+      alt="Rigolim Hair and Co"
+      class="brand-logo"
+    />
   </header>
 
   <!-- HERO -->
