@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Imersão de Penteados | Rigolim Hair and Co</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1648600899900993');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'Imersão de Penteados',
+      content_category: 'Lead Form',
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1648600899900993&ev=PageView&noscript=1"/>
+  </noscript>
+
+<style>
+  :root {
+    --accent:       #111111;
+    --accent-hover: #333333;
+    --bg:           #FAFAF8;
+    --bg-card:      #FFFFFF;
+    --bg-input:     #F4F4F2;
+    --bg-option:    #F9F9F7;
+    --border:       #E0E0DA;
+    --text:         #111111;
+    --text-muted:   #888880;
+    --text-light:   #BBBBBB;
+    --gold:         #C9A96E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { overflow-x: hidden; max-width: 100%; }
+  body {
+    background-color: var(--bg); color: var(--text);
+    font-family: 'Jost', sans-serif; font-weight: 300;
+    min-height: 100vh; overflow-x: hidden; max-width: 100%; width: 100%;
+  }
+
+  .bg-texture {
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 15% 0%,  rgba(0,0,0,0.025) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 60% at 85% 100%, rgba(0,0,0,0.018) 0%, transparent 55%),
+      var(--bg);
+    pointer-events: none;
+  }
+  .grain {
+    position: fixed; inset: 0; z-index: 1; opacity: 0.022;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .wrapper { position: relative; z-index: 2; max-width: 680px; width: 100%; margin: 0 auto; padding: 60px 16px 80px; box-sizing: border-box; }
+
+  .brand { text-align: center; margin-bottom: 56px; animation: fadeDown 0.8s ease both; }
+  .brand-logo { width: 135px; max-width: min(150px, 60vw); height: auto; display: block; margin: 0 auto; }
+
+  .hero {
+    text-align: center; margin-bottom: 52px;
+    animation: fadeUp 0.9s 0.15s ease both;
+    transition: opacity 0.4s ease, max-height 0.5s ease, margin 0.4s ease;
+    max-height: 400px; overflow: hidden;
+  }
+  .hero.hidden { opacity: 0; max-height: 0; margin-bottom: 0; pointer-events: none; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 8vw, 58px); font-weight: 300; line-height: 1.15; margin-bottom: 16px; }
+  .hero h1 em { font-style: italic; }
+  .hero p { font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 480px; margin: 0 auto; letter-spacing: 0.02em; }
+  .hero-sub { margin-bottom: 16px !important; }
+  .hero-cta { font-size: 13px !important; font-weight: 500 !important; color: var(--accent) !important; letter-spacing: 0.04em !important; border-top: 1px solid var(--border); padding-top: 16px !important; margin-top: 4px !important; }
+
+  .form-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; padding: 48px 40px; animation: fadeUp 1s 0.25s ease both; box-shadow: 0 2px 24px rgba(0,0,0,0.05); }
+
+  @media (max-width: 520px) { .form-card { padding: 28px 16px; } .wrapper { padding: 40px 12px 60px; } .brand { margin-bottom: 36px; } .hero { margin-bottom: 32px; } }
+  @media (max-width: 360px) { .form-card { padding: 24px 12px; } .wrapper { padding: 32px 8px 48px; } }
+
+  .progress-bar-wrap { margin-bottom: 36px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+  .progress-bar { height: 2px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); width: 0%; }
+
+  .step { display: none; }
+  .step.active { display: block; animation: fadeIn 0.4s ease both; }
+
+  .step-question { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 4vw, 26px); font-weight: 400; line-height: 1.35; color: var(--text); margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .step-hint { font-size: 12px; color: var(--text-muted); margin-top: -18px; margin-bottom: 20px; letter-spacing: 0.03em; font-style: italic; }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 1px solid var(--border); border-radius: 2px; cursor: pointer; transition: all 0.22s ease; background: var(--bg-option); color: var(--text); text-align: left; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; letter-spacing: 0.03em; width: 100%; }
+  .option:hover { border-color: var(--accent); background: #F0F0EE; color: var(--accent); }
+  .option.selected { border-color: var(--accent); background: #EFEFED; color: var(--accent); font-weight: 400; }
+  .option-dot { width: 18px; height: 18px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .option.selected .option-dot { border-color: var(--accent); background: var(--accent); }
+  .option.selected .option-dot::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: white; }
+
+  .input-group { margin-bottom: 20px; }
+  .input-label { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .input-field { width: 100%; background: var(--bg-input); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; outline: none; transition: border-color 0.2s; }
+  .input-field:focus { border-color: var(--accent); }
+  .input-field::placeholder { color: var(--text-light); }
+
+  .nav-row { display: flex; gap: 12px; margin-top: 32px; }
+  .btn { flex: 1; padding: 15px 24px; border: none; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.25s ease; }
+  .btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-muted); flex: 0 0 auto; padding: 15px 20px; }
+  .btn-back:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-next { background: var(--accent); color: #FFFFFF; font-weight: 500; }
+  .btn-next:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .btn-next:disabled { opacity: 0.25; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-whatsapp { background: linear-gradient(135deg, #1a6e41, #25D366); color: white; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 14px; }
+  .btn-whatsapp:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,211,102,0.25); }
+
+  /* ── Tela Bridge ── */
+  .bridge-badge { display: inline-block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 5px 14px; border-radius: 99px; margin-bottom: 20px; }
+  .bridge-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 5vw, 34px); font-weight: 400; line-height: 1.25; color: var(--text); margin-bottom: 10px; }
+  .bridge-title em { font-style: italic; }
+  .bridge-subtitle { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .bridge-benefits { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .bridge-benefit { display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px; background: var(--bg-input); border-radius: 2px; }
+  .bridge-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .bridge-benefit-title { font-size: 13px; font-weight: 500; letter-spacing: 0.03em; color: var(--text); margin-bottom: 3px; }
+  .bridge-benefit-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .bridge-price-block { text-align: center; padding: 18px 20px; background: var(--bg-option); border: 1px solid var(--border); border-radius: 2px; margin-bottom: 24px; }
+  .bridge-price-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .bridge-price-original { font-size: 13px; color: var(--text-light); text-decoration: line-through; margin-bottom: 2px; }
+  .bridge-price-value { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--accent); line-height: 1; }
+  .bridge-price-installment { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .bridge-discount-tag { display: inline-block; margin-top: 8px; background: var(--accent); color: white; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; }
+  .btn-mrp { background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 13px; font-weight: 500; padding: 18px 24px; width: 100%; border: none; border-radius: 2px; cursor: pointer; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.25s ease; }
+  .btn-mrp:hover { background: #333; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+  .bridge-guarantee { text-align: center; margin-top: 14px; font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; }
+  .bridge-guarantee span { color: var(--accent); }
+
+  .summary-list { margin: 0 0 28px; display: flex; flex-direction: column; gap: 12px; }
+  .summary-item { padding: 14px 18px; background: var(--bg-input); border-left: 2px solid var(--accent); }
+  .summary-q { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+  .summary-a { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--accent); }
+
+  .ornament { text-align: center; color: var(--text-muted); opacity: 0.4; font-size: 18px; margin: 36px 0 0; letter-spacing: 0.4em; }
+
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp   { from { opacity: 0; transform: translateY(24px);  } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn   { from { opacity: 0; transform: translateX(10px);  } to { opacity: 1; transform: translateX(0); } }
+</style>
+</head>
+<body>
+
+<div class="bg-texture"></div>
+<div class="grain"></div>
+
+<div class="wrapper">
+
+  <header class="brand">
+    <img src="https://raw.githubusercontent.com/liv-ia-hub/leads-whats-ale/refs/heads/main/logo-hair-class.png" alt="Rigolim Hair and Co" class="brand-logo"/>
+  </header>
+
+  <div class="hero">
+    <h1>O que falta entre você e uma agenda lotada<br/><em>cabe em 2 dias.</em></h1>
+    <p class="hero-sub">No Master Vip com Leticia Rigolim você domina a técnica, precifica com confiança, se posiciona com autoridade e se torna referência no mercado. Turma exclusiva de 6 pessoas.</p>
+    <p class="hero-cta">Vagas limitadas e com data marcada. Responda as perguntas e garanta a sua agora pelo WhatsApp.</p>
+  </div>
+
+  <div class="form-card">
+
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span id="stepLabel">Etapa 1 de 4</span>
+        <span id="stepPct">25%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step active" id="step1">
+      <div class="step-question">Você já atua com penteados profissionalmente?</div>
+      <div class="options" id="opts1">
+        <button class="option" data-value="Já atuo com penteados" onclick="selectOption(this, 1)">
+          <span class="option-dot"></span> Já atuo com penteados
+        </button>
+        <button class="option" data-value="Sou iniciante" onclick="selectOption(this, 1)">
+          <span class="option-dot"></span> Sou iniciante
+        </button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-next" id="next1" onclick="handleStep1Continue()" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <!-- STEP BRIDGE — Iniciante -->
+    <div class="step" id="stepBridge">
+      <div class="bridge-badge">✦ Encontramos o curso ideal para você</div>
+      <div class="bridge-title">Você está no lugar certo para<br/><em>começar do jeito certo.</em></div>
+      <p class="bridge-subtitle">
+        A imersão presencial é para quem já atua no mercado. Mas temos algo feito especialmente para o seu momento: o <strong>Método Rigolim de Penteados</strong> — o caminho mais rápido para você sair do zero e lotar a agenda.
+      </p>
+      <div class="bridge-benefits">
+        <div class="bridge-benefit">
+          <div class="bridge-icon">💇</div>
+          <div>
+            <div class="bridge-benefit-title">Técnicas do zero ao avançado</div>
+            <div class="bridge-benefit-desc">Do básico ao coque de noiva, com passo a passo claro. Sem enrolação, direto ao ponto.</div>
+          </div>
+        </div>
+        <div class="bridge-benefit">
+          <div class="bridge-icon">📱</div>
+          <div>
+            <div class="bridge-benefit-title">WhatsApp, Instagram e clientes</div>
+            <div class="bridge-benefit-desc">Aprenda a atrair clientes, fechar agendamentos e se posicionar como referência na sua cidade.</div>
+          </div>
+        </div>
+        <div class="bridge-benefit">
+          <div class="bridge-icon">📈</div>
+          <div>
+            <div class="bridge-benefit-title">Estratégias para dobrar o faturamento</div>
+            <div class="bridge-benefit-desc">Tráfego pago, redes sociais e posicionamento — mesmo quem nunca anunciou consegue aplicar.</div>
+          </div>
+        </div>
+        <div class="bridge-benefit">
+          <div class="bridge-icon">🎓</div>
+          <div>
+            <div class="bridge-benefit-title">100% online, 12 meses de acesso</div>
+            <div class="bridge-benefit-desc">Assista quando e onde quiser. Certificado incluído. Grupo de alunas no WhatsApp para suporte.</div>
+          </div>
+        </div>
+      </div>
+      <div class="bridge-price-block">
+        <div class="bridge-price-label">Oferta especial</div>
+        <div class="bridge-price-original">De R$ 594,00</div>
+        <div class="bridge-price-value">R$ 247<small style="font-size:16px;font-weight:300">,00</small></div>
+        <div class="bridge-price-installment">à vista — ou em parcelas</div>
+        <span class="bridge-discount-tag">58% OFF</span>
+      </div>
+      <button class="btn btn-mrp" onclick="redirectToMRP()">
+        Quero garantir minha vaga no MRP
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <div class="bridge-guarantee">
+        <span>✓ Garantia de 7 dias</span> &nbsp;·&nbsp; Sem risco &nbsp;·&nbsp; Acesso imediato
+      </div>
+      <div class="nav-row" style="margin-top: 20px;">
+        <button class="btn btn-back" onclick="goTo(1)" style="flex:1; text-align:center;">← Voltar</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 — Tempo de experiência -->
+    <div class="step" id="step2">
+      <div class="step-question">Quanto tempo você trabalha com penteados?</div>
+      <div class="options" id="opts2">
+        <button class="option" data-value="Até 2 anos de experiência" onclick="selectOption(this, 2)">
+          <span class="option-dot"></span> Até 2 anos de experiência
+        </button>
+        <button class="option" data-value="De 2 a 5 anos de experiência" onclick="selectOption(this, 2)">
+          <span class="option-dot"></span> De 2 a 5 anos de experiência
+        </button>
+        <button class="option" data-value="Mais de 5 anos de experiência" onclick="selectOption(this, 2)">
+          <span class="option-dot"></span> Mais de 5 anos de experiência
+        </button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-back" onclick="goTo(1)">←</button>
+        <button class="btn btn-next" id="next2" onclick="handleStep2Continue()" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <!-- STEP RENDA — apenas para "Até 2 anos" -->
+    <div class="step" id="stepRenda">
+      <div class="step-question">Qual é a sua faixa de faturamento mensal atual?</div>
+      <p class="step-hint">Isso nos ajuda a personalizar o atendimento para você.</p>
+      <div class="options" id="optsRenda">
+        <button class="option" data-value="Até R$ 5.000,00" onclick="selectOptionRenda(this)">
+          <span class="option-dot"></span> Até R$ 5.000,00
+        </button>
+        <button class="option" data-value="De R$ 5.000,00 a R$ 10.000,00" onclick="selectOptionRenda(this)">
+          <span class="option-dot"></span> De R$ 5.000,00 a R$ 10.000,00
+        </button>
+        <button class="option" data-value="Acima de R$ 10.000,00" onclick="selectOptionRenda(this)">
+          <span class="option-dot"></span> Acima de R$ 10.000,00
+        </button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-back" onclick="goTo(2)">←</button>
+        <button class="btn btn-next" id="nextRenda" onclick="goTo(3)" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 — Objetivo -->
+    <div class="step" id="step3">
+      <div class="step-question">Qual é o seu principal objetivo ao participar da imersão?</div>
+      <div class="options" id="opts3"></div>
+      <div class="nav-row">
+        <button class="btn btn-back" onclick="handleStep3Back()">←</button>
+        <button class="btn btn-next" id="next3" onclick="goTo(4)" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 — Dados pessoais -->
+    <div class="step" id="step4">
+      <div class="step-question">Quase lá! Informe seus dados para contato.</div>
+      <div class="input-group">
+        <label class="input-label" for="nome">Nome completo</label>
+        <input class="input-field" type="text" id="nome" placeholder="Seu nome" oninput="checkStep4()"/>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="telefone">WhatsApp (com DDD)</label>
+        <input class="input-field" type="tel" id="telefone" placeholder="(44) 99999-9999" oninput="maskPhone(this); checkStep4()"/>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-back" onclick="goTo(3)">←</button>
+        <button class="btn btn-next" id="next4" onclick="goTo(5)" disabled>Ver resumo</button>
+      </div>
+    </div>
+
+    <!-- STEP 5 — Resumo -->
+    <div class="step" id="step5">
+      <div class="step-question">Tudo certo! Confirme suas respostas.</div>
+      <div class="summary-list" id="summaryList"></div>
+      <div class="nav-row" style="flex-direction:column; gap:10px;">
+        <button class="btn btn-whatsapp" onclick="sendWhatsApp()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Enviar pelo WhatsApp
+        </button>
+        <button class="btn btn-back" onclick="goTo(4)" style="flex:auto; text-align:center;">← Editar respostas</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+</div>
+
+<script>
+  const WHATSAPP_NUMBER  = '5544991760553';
+  const CURSO_ONLINE_URL = 'https://mrp.metodorigolimdepenteados.com.br/';
+
+  const answers = { q1: '', q2: '', renda: '', q3: '' };
+
+  const Q3_OPTIONS = {
+    'Até 2 anos de experiência':     ['Aperfeiçoar técnicas e ganhar confiança',     'Diversificar meu portfólio de serviços',    'Conquistar mais clientes'],
+    'De 2 a 5 anos de experiência':  ['Aprender técnicas avançadas e diferenciadas', 'Especializar em noivas e eventos',           'Crescer no mercado de beleza'],
+    'Mais de 5 anos de experiência': ['Inovar e atualizar minhas técnicas',           'Ampliar serviços e aumentar ticket médio',  'Trocar experiências com outros profissionais'],
+  };
+
+  const TOTAL_STEPS = 4;
+
+  // ── Helpers ──────────────────────────────────────────────────────────────
+  function scrollToCard() {
+    const card = document.querySelector('.form-card');
+    window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
+  }
+
+  function showStep(id) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    scrollToCard();
+  }
+
+  function updateProgress(displayed, label) {
+    const pct = Math.round((displayed / TOTAL_STEPS) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('stepLabel').textContent = label || `Etapa ${displayed} de ${TOTAL_STEPS}`;
+    document.getElementById('stepPct').textContent = label ? '' : pct + '%';
+  }
+
+  // ── Navegação ─────────────────────────────────────────────────────────────
+  function handleStep1Continue() {
+    if (answers.q1 === 'Sou iniciante') {
+      showStep('stepBridge');
+      updateProgress(2, 'Encontramos algo para você');
+      fbq('trackCustom', 'LeadIniciante', { content_name: 'Imersao de Penteados', content_category: 'Exibiu Tela Bridge MRP' });
+      return;
+    }
+    goTo(2);
+  }
+
+  function handleStep2Continue() {
+    if (answers.q2 === 'Até 2 anos de experiência') {
+      // Mostra pergunta de renda
+      showStep('stepRenda');
+      updateProgress(3, 'Etapa 3 de 4');
+      // Restaura seleção anterior se houver
+      document.getElementById('optsRenda').querySelectorAll('.option').forEach(b => {
+        b.classList.toggle('selected', b.dataset.value === answers.renda);
+        if (b.classList.contains('selected')) {
+          const dot = b.querySelector('.option-dot');
+          dot.style.borderColor = 'var(--accent)';
+          dot.style.background = 'var(--accent)';
+        }
+      });
+      document.getElementById('nextRenda').disabled = !answers.renda;
+      return;
+    }
+    // 2-5 anos ou 5+ anos: limpa renda e vai direto para objetivo
+    answers.renda = '';
+    goTo(3);
+  }
+
+  function handleStep3Back() {
+    if (answers.q2 === 'Até 2 anos de experiência') {
+      showStep('stepRenda');
+      updateProgress(3, 'Etapa 3 de 4');
+    } else {
+      goTo(2);
+    }
+  }
+
+  function goTo(n) {
+    showStep('step' + n);
+    const displayed = n > 4 ? 4 : n;
+    updateProgress(displayed);
+    if (n === 3) buildQ3();
+    if (n === 5) buildSummary();
+    const stepNames = { 2: 'Pergunta 2 - Tempo de experiencia', 3: 'Pergunta 3 - Objetivo na imersao', 4: 'Dados de contato', 5: 'Revisao final' };
+    if (n >= 2 && stepNames[n]) fbq('trackCustom', 'FormStep', { step_number: n - 1, step_name: stepNames[n], content_name: 'Imersao de Penteados' });
+  }
+
+  function redirectToMRP() {
+    fbq('track', 'Lead', { content_name: 'MRP - Curso Online', content_category: 'Iniciante Redirecionado' });
+    window.location.href = CURSO_ONLINE_URL;
+  }
+
+  // ── Seleção de opções ─────────────────────────────────────────────────────
+  function selectOption(btn, step) {
+    btn.closest('.options').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const val = btn.dataset.value;
+    if (step === 1) { answers.q1 = val; answers.q2 = ''; answers.renda = ''; answers.q3 = ''; document.querySelector('.hero').classList.add('hidden'); }
+    if (step === 2) { answers.q2 = val; answers.renda = ''; answers.q3 = ''; }
+    if (step === 3) { answers.q3 = val; }
+    document.getElementById('next' + step).disabled = false;
+  }
+
+  function selectOptionRenda(btn) {
+    document.getElementById('optsRenda').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers.renda = btn.dataset.value;
+    document.getElementById('nextRenda').disabled = false;
+  }
+
+  // ── Build dinâmico ────────────────────────────────────────────────────────
+  function buildQ3() {
+    const opts = Q3_OPTIONS[answers.q2] || [];
+    document.getElementById('opts3').innerHTML = opts.map(o =>
+      `<button class="option${answers.q3===o?' selected':''}" data-value="${o}" onclick="selectOption(this,3)"><span class="option-dot"></span> ${o}</button>`
+    ).join('');
+    document.getElementById('next3').disabled = !answers.q3;
+  }
+
+  function checkStep4() {
+    const nome = document.getElementById('nome').value.trim();
+    const tel  = document.getElementById('telefone').value.trim();
+    document.getElementById('next4').disabled = !(nome.length > 2 && tel.length > 9);
+  }
+
+  // ── Máscara telefone ──────────────────────────────────────────────────────
+  let _prevPhoneFormatted = '';
+  function _formatPhone(d) {
+    if (d.length > 7) return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+    if (d.length > 2) return `(${d.slice(0,2)}) ${d.slice(2)}`;
+    if (d.length > 0) return `(${d}`;
+    return '';
+  }
+  function maskPhone(input) {
+    let digits = input.value.replace(/\D/g,'').slice(0,11);
+    if (input.value.length < _prevPhoneFormatted.length && digits === _prevPhoneFormatted.replace(/\D/g,'')) digits = digits.slice(0,-1);
+    const formatted = _formatPhone(digits);
+    _prevPhoneFormatted = formatted;
+    input.value = formatted;
+  }
+
+  // ── Resumo ────────────────────────────────────────────────────────────────
+  function buildSummary() {
+    const nome = document.getElementById('nome').value.trim();
+    const tel  = document.getElementById('telefone').value.trim();
+    const items = [
+      { q: 'Nome',                              a: nome },
+      { q: 'WhatsApp',                          a: tel  },
+      { q: 'Já atua com penteados?',            a: answers.q1 },
+      { q: 'Tempo de experiência',              a: answers.q2 },
+      ...(answers.renda ? [{ q: 'Faturamento mensal', a: answers.renda }] : []),
+      { q: 'Principal objetivo na imersão',     a: answers.q3 },
+    ];
+    document.getElementById('summaryList').innerHTML = items.map(i =>
+      `<div class="summary-item"><div class="summary-q">${i.q}</div><div class="summary-a">${i.a}</div></div>`
+    ).join('');
+  }
+
+  // ── WhatsApp ──────────────────────────────────────────────────────────────
+  function sendWhatsApp() {
+    const nome = document.getElementById('nome').value.trim();
+    const tel  = document.getElementById('telefone').value.trim();
+    const rendaLine = answers.renda ? `\n💰 *Faturamento mensal:*\n→ ${answers.renda}` : '';
+    const msg =
+`✨ *Novo Lead — Imersão de Penteados*
+*Rigolim Hair and Co*
+
+👤 *Nome:* ${nome}
+📱 *WhatsApp:* ${tel}
+
+💇 *Já atua com penteados?*
+→ ${answers.q1}
+
+📅 *Tempo de experiência:*
+→ ${answers.q2}${rendaLine}
+
+🎯 *Principal objetivo na imersão:*
+→ ${answers.q3}`;
+
+    const encoded = encodeURIComponent(msg);
+    fbq('track', 'Lead', { content_name: 'Imersao de Penteados', content_category: answers.q2, content_type: answers.renda || 'N/A' });
+    window.open(`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encoded}&type=phone_number&app_absent=0`, '_blank');
+  }
+</script>
+</body>
+</html>
